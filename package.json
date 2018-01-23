@@ -2,7 +2,7 @@
   "name": "filter-search",
   "version": "1.0.0",
   "description": "Filter a list",
-  "main": "index.js",
+  "main": "dist/filter.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +12,10 @@
     "front end",
     "search"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cagosto/filter-search"
+  },
   "author": "carlos agosto",
   "license": "ISC",
   "devDependencies": {

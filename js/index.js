@@ -1,4 +1,4 @@
-import FILTER from './filter.js'
+import FILTER from '../dist/filter.js'
 
 new FILTER({
   holder: '.filter-scroll',

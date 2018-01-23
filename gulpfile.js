@@ -67,7 +67,7 @@ gulp.task('scripts', () => {
 });
 
 gulp.task('scripts-cjs', () => {
-  gulp.src('js/active-scroll.js')
+  gulp.src('js/filter.js')
     .pipe(babel({
       presets: ['env', 'react', 'stage-2'],
       plugins: ["transform-es2015-modules-commonjs"]
