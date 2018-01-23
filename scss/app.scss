@@ -1,0 +1,63 @@
+body{
+  min-height: 100vh;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.filter-holder{
+  position: relative;
+  width:300px;
+  margin:10px auto;
+  text-align:center;
+}
+
+.filter-search{
+  width:100%;
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+.filter-box{
+  position: absolute;
+  z-index: 99;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  background: #fff;
+  transition: all .3s ease-in-out;
+  width: 100%;
+  padding:0;
+  box-shadow: 0 1px 1px 1px rgba(#000, .2);
+  &.filter-box--active{
+    max-height: 300px;
+    opacity: 1;
+  }
+  button{
+    display: block;
+    margin:0;
+    background: none;
+    border: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    &:hover{
+      background: rgba(#000, .2);
+      color: #fff;
+    }
+    &.filter-box__item--inactive{
+      display: none;
+    }
+  }
+}
+
+.filter-scroll{
+  max-height:300px;
+  overflow-y: scroll;
+}

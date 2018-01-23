@@ -37,7 +37,8 @@ gulp.task('sass', function () {
       ],
       cascade: false
     }))
-    .pipe(gulp.dest('./demo/css'));
+    .pipe(gulp.dest('./demo/css'))
+    .pipe(browserSync.stream());
 });
 
 var srcFile = './js/index.js';
