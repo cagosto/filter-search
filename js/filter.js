@@ -18,7 +18,7 @@ export default class FILTER {
 
     this.filterHolder.innerHTML = this.templet(this.filterItems)
   }
-  templet = list => list.map( item => `<button data-val=${item}>${item}</button>` ).join('')
+  templet = list => list.map(item => `<button data-val=${item}>${item}</button>`).join('')
   events(){
     this.searchBox.addEventListener('click', this.openEvt, false)
     this.searchBox.addEventListener('keyup', this.filterEvt, false)
@@ -27,8 +27,8 @@ export default class FILTER {
   }
   changeCopy = (e) => {
     if(e.target.matches('button')){
-      this.searchBox.value = e.target.innerHTML;
-    };
+      this.searchBox.value = e.target.innerHTML
+    }
   }
   openEvt = (e) => {
     e.stopPropagation()
@@ -39,7 +39,8 @@ export default class FILTER {
   }
   filterEvt = (e) => {
     let val = e.currentTarget.value.toLowerCase()
-    const filter = this.filterItems.filter( filter => filter.toLowerCase().substring(0, val.length) === val)
+    const filter = this.filterItems.filter(filter => filter.toLowerCase()
+      .substring(0, val.length) === val)
 
     this.filterHolder.innerHTML = this.templet(filter)
   }
