@@ -270,6 +270,6 @@ new FILTER({
     "Western Sahara",
     "Yemen",
     "Zambia",
-    "Zimbabwe",
+    "Zimbabwe"
   ]
 });

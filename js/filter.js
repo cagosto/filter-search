@@ -6,7 +6,8 @@ export default class FILTER {
       filter,
       holder,
       searchInput,
-      filterList} = settings
+      filterList
+    } = settings
 
     this.displayFilter = displayFilter || 'filter-box--active'
     this.displayFilterItem = displayFilterItem || 'filter-box__item--inactive'
@@ -18,15 +19,23 @@ export default class FILTER {
 
     this.filterHolder.innerHTML = this.templet(this.filterItems)
   }
+  keyList = [
+    38,
+    40,
+    37,
+    39,
+    13,
+    91
+  ]
   templet = list => list.map(item => `<button data-val=${item}>${item}</button>`).join('')
-  events(){
+  events() {
     this.searchBox.addEventListener('click', this.openEvt, false)
     this.searchBox.addEventListener('keyup', this.filterEvt, false)
     document.body.addEventListener('click', this.closeEvt, false)
     this.filterHolder.addEventListener('click', this.changeCopy, false)
   }
   changeCopy = (e) => {
-    if(e.target.matches('button')){
+    if (e.target.matches('button')) {
       this.searchBox.value = e.target.innerHTML
     }
   }
@@ -38,10 +47,13 @@ export default class FILTER {
     this.filter.classList.remove(this.displayFilter)
   }
   filterEvt = (e) => {
-    let val = e.currentTarget.value.toLowerCase()
-    const filter = this.filterItems.filter(filter => filter.toLowerCase()
-      .substring(0, val.length) === val)
+    const key = e.which
+    const val = e.currentTarget.value.toLowerCase()
 
-    this.filterHolder.innerHTML = this.templet(filter)
+    if(this.keyList.indexOf(key) < 0 ){
+      const filter = this.filterItems.filter(filter => filter.toLowerCase().substring(0, val.length) === val)
+
+      this.filterHolder.innerHTML = this.templet(filter)
+    }
   }
 }
