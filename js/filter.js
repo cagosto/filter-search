@@ -41,7 +41,7 @@ export default class FILTER {
   }
   /**
    * changeCopy - Update input after item is selected
-   * @param  {Obj} e - event object
+   * @param {Obj} e - event object
    */
   changeCopy = (e) => {
     if (e.target.matches('button')) {
@@ -50,7 +50,7 @@ export default class FILTER {
   }
   /**
    * openEvt - Show filter list dropdown
-   * @param  {Obj} e - event object
+   * @param {Obj} e - event object
    */
   openEvt = (e) => {
     e.stopPropagation()
@@ -58,14 +58,14 @@ export default class FILTER {
   }
   /**
    * closeEvt - Hide filter list dropdown
-   * @param  {Obj} e - event object
+   * @param {Obj} e - event object
    */
   closeEvt = (e) => {
     this.filter.classList.remove(this.displayFilter)
   }
   /**
    * filterEvt - filter list form user typing
-   * @param  {Obj} e - event object
+   * @param {Obj} e - event object
    */
   filterEvt = (e) => {
     const key = e.which
@@ -78,7 +78,7 @@ export default class FILTER {
   /**
    * filterDisplay - filter down list
    * @param  {String} val - Value for filtering down list
-   * @return {Array} - Array of filtered down values basiced off of passed in value  
+   * @return {Array} - Array of filtered down values basiced off of passed in value
    */
   filterDisplay = (val) => this.filterItems.filter(filter => filter.toLowerCase().substring(0, val.length) === val)
 }
