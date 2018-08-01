@@ -26,7 +26,6 @@ new FILTER({
   holder: '.filter-scroll',
   filter: '.filter-box',
   searchInput: '#filter-search',
-  displayFilter:'filter-box--active',
   filterList : [
     "Afghanistan",
     "Albania",
