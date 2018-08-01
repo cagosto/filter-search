@@ -47,6 +47,8 @@ html {
     text-align: left;
     transition: all .3s ease-in-out;
     cursor: pointer;
+
+    &.active,
     &:hover{
       background: rgba(#000, .2);
       color: #fff;

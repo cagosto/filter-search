@@ -6,7 +6,9 @@ export default class FILTER {
       filter,
       holder,
       searchInput,
-      filterList
+      filterList,
+      activeKeyClass,
+      keybordAcitve
     } = settings
 
     this.displayFilter = displayFilter || 'filter-box--active'
@@ -15,10 +17,14 @@ export default class FILTER {
     this.filterHolder = this.filter.querySelector(holder)
     this.filterItems = filterList
     this.searchBox = document.querySelector(searchInput)
+    this.totalItems = filterList.length
+    this.activeKeyClass = activeKeyClass || 'active'
+    this.keybordAcitve = keybordAcitve || true
     this.events()
 
     this.filterHolder.innerHTML = this.templet(this.filterItems)
   }
+  count = -1
   keyList = [
     38,
     40,
@@ -62,6 +68,8 @@ export default class FILTER {
    */
   closeEvt = (e) => {
     this.filter.classList.remove(this.displayFilter)
+
+    this.count = -1
   }
   /**
    * filterEvt - filter list form user typing
@@ -72,13 +80,48 @@ export default class FILTER {
     const val = e.currentTarget.value.toLowerCase()
 
     if(this.keyList.indexOf(key) < 0 ){
+      this.count = -1
       this.filterHolder.innerHTML = this.templet(this.filterDisplay(val))
     }
+
+    if(this.keybordAcitve && (key === 40 || key === 38)){
+      this.activeKeySettings(key)
+    }
+  }
+  /**
+   * activeKeySettings - Set active state when using keybord arrows
+   * @param  {Num} dir - keborde which value
+   */
+  activeKeySettings(dir){
+    const {
+      totalItems,
+      filterHolder,
+      activeKeyClass} = this
+    const item = filterHolder.children
+    const isActive = filterHolder.querySelector(`.${activeKeyClass}`)
+
+    if(dir === 40){
+      this.count = (this.count !== (totalItems - 1)) ? ++this.count : 0
+    } else {
+      this.count = (this.count !== 0) ? --this.count : totalItems - 1
+    }
+
+    if(isActive){
+      isActive.classList.remove(activeKeyClass)
+    }
+
+    item[this.count].classList.add(activeKeyClass)
   }
   /**
    * filterDisplay - filter down list
    * @param  {String} val - Value for filtering down list
    * @return {Array} - Array of filtered down values basiced off of passed in value
    */
-  filterDisplay = (val) => this.filterItems.filter(filter => filter.toLowerCase().substring(0, val.length) === val)
+  filterDisplay = (val) => {
+    const list = this.filterItems.filter(filter => filter.toLowerCase().substring(0, val.length) === val)
+
+    this.totalItems = list.length
+
+    return list
+  }
 }
