@@ -34,14 +34,7 @@ export default class FILTER {
     this.filterHolder.innerHTML = this.templet(this.filterItems)
   }
   count = -1
-  keyList = [
-    38,
-    40,
-    37,
-    39,
-    13,
-    91
-  ]
+  keyList = [38,40,37,39,13,91]
   /**
    * templet - Markup for each filter item
    * @param  {Arry} list - List of item to be displayed
