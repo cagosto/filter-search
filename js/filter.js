@@ -1,25 +1,34 @@
 export default class FILTER {
-  constructor(settings) {
+  constructor(settings = {}) {
+    const defaults = {
+      displayFilter: null,
+      filterList: [],
+      keybordAcitve: false,
+      holder: '',
+      filter: '',
+      searchInput: '',
+      activeKeyClass: '',
+      keybordAcitve: false
+    }
+    const mergdSettings =  { ...defaults, ...settings }
     const {
       displayFilter,
-      displayFilterItem,
       filter,
       holder,
       searchInput,
       filterList,
       activeKeyClass,
       keybordAcitve
-    } = settings
+    } = mergdSettings
 
-    this.displayFilter = displayFilter || 'filter-box--active'
-    this.displayFilterItem = displayFilterItem || 'filter-box__item--inactive'
+    this.displayFilter = displayFilter
     this.filter = document.querySelector(filter)
     this.filterHolder = this.filter.querySelector(holder)
-    this.filterItems = filterList
+    this.filterItems = filterList ||  []
     this.searchBox = document.querySelector(searchInput)
     this.totalItems = filterList.length
-    this.activeKeyClass = activeKeyClass || 'active'
-    this.keybordAcitve = keybordAcitve || true
+    this.activeKeyClass = activeKeyClass
+    this.keybordAcitve = keybordAcitve
     this.events()
 
     this.filterHolder.innerHTML = this.templet(this.filterItems)
@@ -40,8 +49,11 @@ export default class FILTER {
    */
   templet = list => list.map(item => `<button data-val=${item}>${item}</button>`).join('')
   events() {
-    this.searchBox.addEventListener('click', this.openEvt, false)
-    this.searchBox.addEventListener('keyup', this.filterEvt, false)
+    if(this.displayFilter !== null) {
+      this.searchBox.addEventListener('click', this.openEvt, false)
+      this.searchBox.addEventListener('keyup', this.filterEvt, false)
+    }
+
     document.body.addEventListener('click', this.closeEvt, false)
     this.filterHolder.addEventListener('click', this.changeCopy, false)
   }

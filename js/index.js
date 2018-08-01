@@ -4,6 +4,9 @@ new FILTER({
   holder: '.filter-scroll',
   filter: '.filter-box',
   searchInput: '#filter-search',
+  activeKeyClass: 'active',
+  displayFilter: 'filter-box--active',
+  keybordAcitve: true,
   filterList: [
     "Afghanistan",
     "Albania",

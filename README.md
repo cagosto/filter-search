@@ -11,13 +11,29 @@ import FILTER from 'filter-search';
 
 Then pass it the required arguments for set up.  As listed below.
 
+| Options        | Type        | Require    | Default Value    |
+| -------------  |-----------  | ---------  |----------------  |
+| holder         | String      | true       | ''               |
+| filter         | String      | true       | ''               |
+| searchInput    | String      | true       | ''               |
+| displayFilter  | String      | false      | null             |
+| filterList     | Array       | true       | []               |
+| activeKeyClass | String      | false      | ''               |
+| keybordAcitve  | Boolean     | false      | false            |
+
 ```
 new FILTER({
   holder: '.filter-scroll',
   filter: '.filter-box',
   searchInput: '#filter-search',
-  displayFilter: optional | 'filter-box--active' (default),
-  displayFilterItem: optional | 'filter-box__item--inactive' (default),
-  filterList : [List of filters]
+  displayFilter:'filter-box--active',
+  filterList : [
+    "Afghanistan",
+    "Albania",
+    "Algeria",
+    "Andorra",
+    "Angola",
+    "Anguilla"
+  ],
 });
 ```
