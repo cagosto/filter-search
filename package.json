@@ -1,6 +1,6 @@
 {
   "name": "filter-search",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Filter a list",
   "main": "dist/filter.js",
   "scripts": {

@@ -6,7 +6,7 @@ new FILTER({
   searchInput: '#filter-search',
   activeKeyClass: 'active',
   displayFilter: 'filter-box--active',
-  keybordAcitve: true,
+  keyboardActive: true,
   filterList: [
     "Afghanistan",
     "Albania",

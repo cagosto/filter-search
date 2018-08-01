@@ -11,15 +11,15 @@ import FILTER from 'filter-search';
 
 Then pass it the required arguments for set up.  As listed below.
 
-| Options        | Type        | Require    | Default Value    |
-| -------------  |-----------  | ---------  |----------------  |
-| holder         | String      | true       | ''               |
-| filter         | String      | true       | ''               |
-| searchInput    | String      | true       | ''               |
-| displayFilter  | String      | false      | null             |
-| filterList     | Array       | true       | []               |
-| activeKeyClass | String      | false      | ''               |
-| keybordAcitve  | Boolean     | false      | false            |
+| Options         | Type        | Require    | Default Value    |
+| -------------   |-----------  | ---------  |----------------  |
+| holder          | String      | true       | ''               |
+| filter          | String      | true       | ''               |
+| searchInput     | String      | true       | ''               |
+| displayFilter   | String      | false      | null             |
+| filterList      | Array       | true       | []               |
+| activeKeyClass  | String      | false      | ''               |
+| keyboardActive  | Boolean     | false      | false            |
 
 ```
 new FILTER({

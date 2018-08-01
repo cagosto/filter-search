@@ -3,12 +3,12 @@ export default class FILTER {
     const defaults = {
       displayFilter: null,
       filterList: [],
-      keybordAcitve: false,
+      keyboardActive: false,
       holder: '',
       filter: '',
       searchInput: '',
       activeKeyClass: '',
-      keybordAcitve: false
+      keyboardActive: false
     }
     const mergdSettings =  { ...defaults, ...settings }
     const {
@@ -18,17 +18,17 @@ export default class FILTER {
       searchInput,
       filterList,
       activeKeyClass,
-      keybordAcitve
+      keyboardActive
     } = mergdSettings
 
     this.displayFilter = displayFilter
     this.filter = document.querySelector(filter)
     this.filterHolder = this.filter.querySelector(holder)
-    this.filterItems = filterList ||  []
+    this.filterItems = filterList
     this.searchBox = document.querySelector(searchInput)
     this.totalItems = filterList.length
     this.activeKeyClass = activeKeyClass
-    this.keybordAcitve = keybordAcitve
+    this.keyboardActive = keyboardActive
     this.events()
 
     this.filterHolder.innerHTML = this.templet(this.filterItems)
@@ -96,7 +96,7 @@ export default class FILTER {
       this.filterHolder.innerHTML = this.templet(this.filterDisplay(val))
     }
 
-    if(this.keybordAcitve && (key === 40 || key === 38)){
+    if(this.keyboardActive && (key === 40 || key === 38)){
       this.activeKeySettings(key)
     }
   }
