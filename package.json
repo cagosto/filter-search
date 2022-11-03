@@ -28,7 +28,7 @@
     "babelify": "^8.0.0",
     "browser-sync": "^2.24.6",
     "browserify": "^14.5.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-babel-compile": "0.0.3",
     "gulp-if": "^2.0.2",
